@@ -19,7 +19,7 @@ public class Aluno {
     private int    idade;
     private String endereco;
     private boolean isMatriculado;
-    private classe Classe;
+    private Classe Classe;
 
     public int getRm() {
         return Rm;
@@ -101,11 +101,11 @@ public class Aluno {
         this.isMatriculado = isMatriculado;
     }
 
-    public classe getClasse() {
+    public Classe getClasse() {
         return Classe;
     }
 
-    public void setClasse(classe Classe) {
+    public void setClasse(Classe Classe) {
         this.Classe = Classe;
     }
     
