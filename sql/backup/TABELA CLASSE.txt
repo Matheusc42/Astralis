@@ -1,0 +1,6 @@
+CREATE TABLE classe (
+    idReg INTEGER AUTO_INCREMENT,
+    name VARCHAR(60) NOT NULL,
+    ano INTEGER NOT NULL,
+    alunos VARCHAR(60),
+	CONSTRAINT pk_idReg PRIMARY KEY(idReg));
