@@ -4,6 +4,8 @@
  */
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import model.Classe;
 
 /**
@@ -16,7 +18,9 @@ public class ClasseDAO {
     
     public void atualizarClasse(Classe classe){}
     
-    public void listarClasse(Classe classe){}
+    public  List<Classe> listarClasse (Classe classe){
+        return null;
+    }
     
     public void deletarClasse(Classe classe){}
 }
