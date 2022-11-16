@@ -1,20 +1,23 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page language="java"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" language="java"%>
+<%@page import=""%>
 <!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Novo Funcionario</title>
+    <title>JSP Page</title>
   </head>
   <body>
-  <h1> Novo Funcionário </h1>
-  <a href="./employeeManagement.jsp"><button> Voltar </button> </a>
-  <br> <br>
+    <%
+
+      int IdReg = request.getParameter("IdReg");
+      Funcionario func = FuncionarioDAO.getOneEmployeeById(IdReg);
+
+    %>
+    <h1>Hello World!</h1>
+
     <form action="./employeeControllers/newEmployee.jsp" method="post">
-      <label for="IdReg"> IdReg:  </label>
-      <input type="text" name="IdReg" /> <br />
       <label for="name"> Nome: </label>
-      <input type="text" name="name" /> <br />
+      <% out.print('<input type="text" name="name" value="'+ func.getName() +'"/>')%> <br />
       <label for="RG">RG: </label>
       <input type="text" name="RG" /> <br />
       <label for="CPF">CPF: </label>

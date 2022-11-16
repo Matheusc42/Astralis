@@ -65,7 +65,47 @@ public class FuncionarioDAO {
         return list;
     }
 
+    //Função responsável por resgatar todos os dados de um funcionário baseado no ID
+    public static Funcionario getOneEmployeeById(int IdReg){
 
+        //Criando objeto Funcionario de retorno
+        Funcionario func = new Funcionario();
+
+        try {
+
+            //Criando conexão com o Banco de Dados e preparando a Query
+            Connection con = ConnectDB.getConnection();
+            PreparedStatement ps = con.prepareStatement("CALL sp_getOneEmployeeById (" + IdReg +");");
+            ResultSet rs = ps.executeQuery();
+
+            //Pegando os resultados e setando o objeto Funcionário
+            while(rs.next()){
+                func.setIdReg(rs.getInt("IdReg"));
+                func.setName(rs.getString("name"));
+                func.setRG(rs.getString("RG"));
+                func.setCPF(rs.getString("CPF"));
+                func.setBirthDate(rs.getDate("BirthDate"));
+                func.setMobilePhone(rs.getString("MobilePhone"));
+                func.setPhone(rs.getString("Phone"));
+                func.setMail(rs.getString("Mail"));
+                func.setAddress(rs.getString("Address"));
+                func.setCity(rs.getString("City"));
+                func.setUF(rs.getString("UF"));
+                func.setPosition(rs.getString("Position"));
+            }
+            //Fechando conexão com o Banco de Dados
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("Erro: " + e);
+        }
+
+        //Retorno Objeto Funcionário
+        return func;
+    }
+
+    
+    //Função responsável por Inserir Registros no Banco de Dados 
     public static void newEmployee(String name, String RG, String CPF, String birthDate, String Mobile, String Phone, String Mail, String Address, String City, String UF, String Position){
 
         try {
@@ -79,4 +119,6 @@ public class FuncionarioDAO {
             System.out.println(e);
         }
     }
+
+
 }
