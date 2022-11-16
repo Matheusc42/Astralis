@@ -1,44 +1,36 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package model;
 
-/**
- *
- * @author BINHO
- */
-public class Funcionario {
-    private int idReg;
-    protected String nome;
-    protected String RG;
-    protected String CPF;
-    protected String endereco;
-    protected String cargo;
+import java.util.Date;
 
-    public Funcionario(int idReg, String nome, String RG, String CPF, String endereco, String cargo) {
-        this.idReg = idReg;
-        this.nome = nome;
-        this.RG = RG;
-        this.CPF = CPF;
-        this.endereco = endereco;
-        this.cargo = cargo;
-    }
+public class Funcionario {
+    private int IdReg;
+    private String name;
+    private String RG;
+    private String CPF;
+    private Date birthDate;
+    private String mobilePhone;
+    private String phone;
+    private String mail;
+    private String address;
+    private String city;
+    private String UF;
+    private String position;
 
     public int getIdReg() {
-        return idReg;
+        return IdReg;
     }
 
-    public void setIdReg(int idReg) {
-        this.idReg = idReg;
+    public void setIdReg(int IdReg) {
+        this.IdReg = IdReg;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getRG() {
@@ -57,20 +49,68 @@ public class Funcionario {
         this.CPF = CPF;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public String getCargo() {
-        return cargo;
+    public String getMobilePhone() {
+        return mobilePhone;
     }
 
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
-    
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getUF() {
+        return UF;
+    }
+
+    public void setUF(String UF) {
+        this.UF = UF;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+        
 }

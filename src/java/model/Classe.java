@@ -18,7 +18,7 @@ class Classe {
     public int getIdReg() {
         return idReg;
     }
-
+    
     public void setIdReg(int idReg) {
         this.idReg = idReg;
     }
