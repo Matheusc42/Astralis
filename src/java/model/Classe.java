@@ -8,7 +8,7 @@ package model;
  *
  * @author sfcma
  */
-class Classe {
+public class Classe {
 
     private int idReg;
     private String name;

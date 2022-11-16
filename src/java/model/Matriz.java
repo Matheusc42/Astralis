@@ -10,4 +10,49 @@ package model;
  */
 public class Matriz {
     
+    private int idReg;
+    private String nome;
+    private int anoLetivo;
+    private String componentes;
+
+    public Matriz(int idReg, String nome, int anoLetivo, String componentes) {
+        this.idReg = idReg;
+        this.nome = nome;
+        this.anoLetivo = anoLetivo;
+        this.componentes = componentes;
+    }
+
+    public int getIdReg() {
+        return idReg;
+    }
+
+    public void setIdReg(int idReg) {
+        this.idReg = idReg;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getAnoLetivo() {
+        return anoLetivo;
+    }
+
+    public void setAnoLetivo(int anoLetivo) {
+        this.anoLetivo = anoLetivo;
+    }
+
+    public String getComponentes() {
+        return componentes;
+    }
+
+    public void setComponentes(String componentes) {
+        this.componentes = componentes;
+    }
+    
+    
 }

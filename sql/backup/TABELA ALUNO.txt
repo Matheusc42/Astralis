@@ -1,0 +1,16 @@
+TABELA ALUNO
+
+CREATE TABLE aluno (
+    fullName VARCHAR(60) NOT NULL,
+	rm INTEGER AUTO_INCREMENT,
+	rg VARCHAR(7) NOT NULL,
+    cpf VARCHAR(11) NOT NULL,
+    responsavel_mae VARCHAR(60),
+    responsavel_pai VARCHAR(60),
+    dataNascimento DATE NOT NULL,
+    idade INTEGER NOT NULL,
+    endereco VARCHAR (90) NOT NULL,
+    isMatriculado BIT NOT  NULL,
+    classe VARCHAR (12) NOT NULL,
+	CONSTRAINT pk_rm PRIMARY KEY(rm));
+
