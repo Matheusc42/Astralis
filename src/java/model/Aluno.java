@@ -13,13 +13,35 @@ public class Aluno {
     private String fullName;
     private String RG;
     private String CPF;
-    private String responsavelMae;
-    private String responsavelPai;
+    private String birthCertificate;
     private Date   dataNasc;
-    private int    idade;
-    private String endereco;
+    private String responsavelMae;
+    private String RGMae;
+    private String CPFMae;
+    private String responsavelPai;
+    private String RGPai;
+    private String CPFPai;
+    private String mobilePhone;
+    private String Phone;
+    private String Mail;
+    private String CEP;
+    private String address;
+    private String number;
+    private String city;
+    private String district;
+    private String birthCity;
+    private String UF;
     private boolean isMatriculado;
-    private Classe Classe;
+    private int FkClass;
+
+
+    public String getUF() {
+        return UF;
+    }
+
+    public void setUF(String UF) {
+        this.UF = UF;
+    }
 
     public int getRm() {
         return Rm;
@@ -53,20 +75,12 @@ public class Aluno {
         this.CPF = CPF;
     }
 
-    public String getResponsavelMae() {
-        return responsavelMae;
+    public String getBirthCertificate() {
+        return birthCertificate;
     }
 
-    public void setResponsavelMae(String responsavelMae) {
-        this.responsavelMae = responsavelMae;
-    }
-
-    public String getResponsavelPai() {
-        return responsavelPai;
-    }
-
-    public void setResponsavelPai(String responsavelPai) {
-        this.responsavelPai = responsavelPai;
+    public void setBirthCertificate(String birthCertificate) {
+        this.birthCertificate = birthCertificate;
     }
 
     public Date getDataNasc() {
@@ -77,20 +91,124 @@ public class Aluno {
         this.dataNasc = dataNasc;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getResponsavelMae() {
+        return responsavelMae;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setResponsavelMae(String responsavelMae) {
+        this.responsavelMae = responsavelMae;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getRGMae() {
+        return RGMae;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setRGMae(String RGMae) {
+        this.RGMae = RGMae;
+    }
+
+    public String getCPFMae() {
+        return CPFMae;
+    }
+
+    public void setCPFMae(String CPFMae) {
+        this.CPFMae = CPFMae;
+    }
+
+    public String getRGPai() {
+        return RGPai;
+    }
+
+    public void setRGPai(String RGPai) {
+        this.RGPai = RGPai;
+    }
+
+    public String getCPFPai() {
+        return CPFPai;
+    }
+
+    public void setCPFPai(String CPFPai) {
+        this.CPFPai = CPFPai;
+    }
+
+    public String getResponsavelPai() {
+        return responsavelPai;
+    }
+
+    public void setResponsavelPai(String responsavelPai) {
+        this.responsavelPai = responsavelPai;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String Phone) {
+        this.Phone = Phone;
+    }
+
+    public String getMail() {
+        return Mail;
+    }
+
+    public void setMail(String Mail) {
+        this.Mail = Mail;
+    }
+
+    public String getCEP() {
+        return CEP;
+    }
+
+    public void setCEP(String CEP) {
+        this.CEP = CEP;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getBirthCity() {
+        return birthCity;
+    }
+
+    public void setBirthCity(String birthCity) {
+        this.birthCity = birthCity;
     }
 
     public boolean isIsMatriculado() {
@@ -101,12 +219,15 @@ public class Aluno {
         this.isMatriculado = isMatriculado;
     }
 
-    public Classe getClasse() {
-        return Classe;
+    public int getFkClass() {
+        return FkClass;
     }
 
-    public void setClasse(Classe Classe) {
-        this.Classe = Classe;
+    public void setFkClass(int FkClass) {
+        this.FkClass = FkClass;
     }
     
+    
+    
+
 }
