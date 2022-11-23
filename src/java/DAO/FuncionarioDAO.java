@@ -228,5 +228,37 @@ public class FuncionarioDAO {
             System.out.println("Error: " + e);
         }
     }
+
+    public static List<Funcionario> getAllDocente(){
+        
+        //Criando lista de retorno
+        List<Funcionario> listReturn = new ArrayList<>();
+
+        try{
+
+            //Coletando informacoes do banco
+            Connection con = ConnectDB.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT IdReg, name, graduation FROM funcionario WHERE position = 'Docente';");
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                //Criando objeto da lista
+                Funcionario returnFunc = new Funcionario();
+
+                returnFunc.setIdReg(rs.getInt("IdReg"));
+                returnFunc.setName(rs.getString("name"));
+                returnFunc.setGraduation(rs.getString("Graduation"));
+
+                listReturn.add(returnFunc);
+            }
+
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e);
+        }
+
+        //Retornando obj retorno
+        return listReturn;
+    }
 }
 

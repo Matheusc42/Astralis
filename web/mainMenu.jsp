@@ -28,6 +28,10 @@ sfcma --%>
       <a href="">
         Gerenciar Alunos 
       </a>
+      <br>
+      <a href="gerenciarAtribuicao.jsp">
+        Atribuição de aula
+      </a>
     </div>
   </body>
 </html>

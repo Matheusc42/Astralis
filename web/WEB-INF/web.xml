@@ -8,6 +8,10 @@
         <servlet-name>Funcionario</servlet-name>
         <servlet-class>controller.FuncionarioController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Assigment</servlet-name>
+        <servlet-class>controller.Assigment</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Authentication</servlet-name>
         <url-pattern>/Authentication</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>Funcionario</servlet-name>
         <url-pattern>/Funcionario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Assigment</servlet-name>
+        <url-pattern>/Assigment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
