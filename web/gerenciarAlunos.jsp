@@ -42,7 +42,7 @@
                 <td><% out.print(allStudents.get(i).getName());%></td>
                 <td><% out.print(allStudents.get(i).getResponsavelMae());%></td>
                 <td><% out.print(allStudents.get(i).getBirthDate());%></td>
-                <td><a href="atualizarClasse.jsp?IdReg=<% out.print(allStudents.get(i).getRM());%>"> <button> Editar </button> </a></td>
+                <td><a href="atualizarAluno.jsp?Rm=<% out.print(allStudents.get(i).getRM());%>"> <button> Editar </button> </a></td>
                 <td><a href="Aluno?action=deletarAluno&RM=<% out.print(allStudents.get(i).getRM());%>"> <button> Excluir </button> </a> </td>
                 <td><button> Matricular </button> </td>
             </tr>

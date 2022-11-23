@@ -211,7 +211,7 @@ public class Aluno {
         this.UF = UF;
     }
 
-    public boolean isIsMatriculado() {
+    public boolean getIsMatriculado() {
         return isMatriculado;
     }
 
@@ -225,6 +225,14 @@ public class Aluno {
 
     public void setFkClass(int FkClass) {
         this.FkClass = FkClass;
+    }
+
+    public void setDataNasc(java.sql.Date date) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public java.sql.Date getDataNasc() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     
