@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Novo Funcionario</title>
+    <title>Astralis | Novo Funcionario</title>
   </head>
   <body>
   <h1> Novo Funcionário </h1>

@@ -16,6 +16,10 @@
         <servlet-name>Aluno</servlet-name>
         <servlet-class>controller.AlunoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Classe</servlet-name>
+        <servlet-class>controller.ClasseController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Authentication</servlet-name>
         <url-pattern>/Authentication</url-pattern>
@@ -32,9 +36,13 @@
         <servlet-name>Aluno</servlet-name>
         <url-pattern>/Aluno</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Classe</servlet-name>
+        <url-pattern>/Classe</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            60
         </session-timeout>
     </session-config>
 </web-app>

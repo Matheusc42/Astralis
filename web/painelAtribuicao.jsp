@@ -10,14 +10,8 @@
 <%@page import="java.util.*" %>
 <%@page import="DAO.FuncionarioDAO" %>
 <%@page import="model.Funcionario" %>
+<%@page import="DAO.AssigmentDAO" %>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Astralis | Atribuição de aula</title>
-    </head>
-    <body>
         <%
             //Resgatando parametros da URL
             int IdReg = Integer.parseInt(request.getParameter("IdReg"));
@@ -29,18 +23,38 @@
             //Criando obj Classe atual
             Classe currentClasse = ClasseDAO.getOneClasseById(classeParam);
         %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title><%out.print(currentClasse.getName());%> | Atribuição de aula</title>
+    </head>
+    <body>
         <a href="gerenciarAtribuicao.jsp"><button>Voltar</button></a>
         <h1><%out.print(currentClasse.getName());%></h1>
         <h3> Professores associados a essa turma: </h3>
+        
+        <%
+            List<Funcionario> assignedFunc = AssigmentDAO.getAssignedDocente(classeParam);
+        %>
 
         <table border="1px">
-            <tr>
-                <th> Id </th>
+            <tr> 
                 <th> Nome </th>
                 <th> Formação </th>
-                <th> Atribuição </th> 
-            </tr>  
+            </tr>
+            <%
+                for(int i = 0; i < assignedFunc.size(); i++){
+            %>
+            <tr>
+                <td><%out.print(assignedFunc.get(i).getName());%></td>
+                <td><%out.print(assignedFunc.get(i).getGraduation());%></td>
+            </tr>    
+        <%}%> 
         </table>
+
+
+
         <%
             List<Funcionario> availableFunc = FuncionarioDAO.getAllDocente();
         %>

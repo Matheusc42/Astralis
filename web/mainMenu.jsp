@@ -6,7 +6,7 @@ sfcma --%>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>JSP Page</title>
+    <title>Astralis</title>
   </head>
   <body>
     <% 
@@ -27,6 +27,10 @@ sfcma --%>
       <br>
       <a href="">
         Gerenciar Alunos 
+      </a>
+      <br>
+      <a href="gerenciarClasses.jsp">
+        Gerenciar Classes
       </a>
       <br>
       <a href="gerenciarAtribuicao.jsp">

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./CSS/modal.css">
     <script type="text/javascript" src="./Js/modal.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Gerenciamento de Funcionários</title>
+    <title>Astralis | Gerenciar Funcionarios</title>
   </head>
   <body>
 

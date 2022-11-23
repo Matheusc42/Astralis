@@ -28,7 +28,7 @@ public class ClasseDAO {
             
             //Conectando ao banco de dados para coletar as classes
             Connection con = ConnectDB.getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM classe;");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM classe ORDER BY name;");
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
@@ -76,5 +76,50 @@ public class ClasseDAO {
         }
 
         return returnClass;
+    }
+
+    public static void newClasse(Classe classeParam){
+
+        //Conectando ao banco de dados para realizar o insert
+
+        try {
+            Connection con = ConnectDB.getConnection();
+            PreparedStatement ps = con.prepareStatement("INSERT INTO classe (name, Schoolyear) VALUES ('"+classeParam.getName()+"','"+classeParam.getSchoolYear()+"');");
+            
+            ps.execute();
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e);
+        }
+    }
+
+    public static void updateClasseById(Classe classeParam){
+
+      //Conectando ao banco de dados para realizar o UPDATE
+
+      try {
+        Connection con = ConnectDB.getConnection();
+        PreparedStatement ps = con.prepareStatement("UPDATE classe SET name = '" + classeParam.getName() + "', SchoolYear = '" + classeParam.getSchoolYear() + "' WHERE IdReg=" + classeParam.getIdReg() + ";");
+        
+        ps.execute();
+        con.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e);
+        }
+    }
+
+    public static void deleteClasseById(Classe classeParam){
+    
+        //Conectando ao banco de dados para realizar o DELETE
+
+        try {
+            Connection con = ConnectDB.getConnection();
+            PreparedStatement ps = con.prepareStatement("DELETE FROM classe WHERE IdReg=" + classeParam.getIdReg() + ";");
+        
+            ps.execute();
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e);
+        } 
     }
 }
