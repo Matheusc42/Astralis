@@ -211,7 +211,7 @@ public class Aluno {
         this.birthCity = birthCity;
     }
 
-    public boolean isIsMatriculado() {
+    public boolean getIsIsMatriculado() {
         return isMatriculado;
     }
 
