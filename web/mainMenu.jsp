@@ -25,7 +25,7 @@ sfcma --%>
         Gerenciar Funcionários
       </a>
       <br>
-      <a href="">
+      <a href="gerenciarAlunos.jsp">
         Gerenciar Alunos 
       </a>
       <br>

@@ -13,12 +13,12 @@
         <servlet-class>controller.Assigment</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Aluno</servlet-name>
-        <servlet-class>controller.AlunoController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Classe</servlet-name>
         <servlet-class>controller.ClasseController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Aluno</servlet-name>
+        <servlet-class>controller.AlunoController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Authentication</servlet-name>
@@ -33,12 +33,12 @@
         <url-pattern>/Assigment</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Aluno</servlet-name>
-        <url-pattern>/Aluno</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Classe</servlet-name>
         <url-pattern>/Classe</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Aluno</servlet-name>
+        <url-pattern>/Aluno</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

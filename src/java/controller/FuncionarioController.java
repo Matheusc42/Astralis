@@ -201,7 +201,7 @@ public class FuncionarioController extends HttpServlet {
         }
         
         //:::::Action:::::
-        //Remover acesso
+        //Primeira Senha
         if(action != null && action.equals("primeiraSenha")){
 
             //Recuperando parametros 

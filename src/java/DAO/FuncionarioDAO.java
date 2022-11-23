@@ -151,7 +151,7 @@ public class FuncionarioDAO {
 
         try {
             Connection con = ConnectDB.getConnection();
-            PreparedStatement ps = con.prepareStatement("UPDATE Funcionario SET Name='"+funcParam.getName()+"', RG = '"+funcParam.getRG()+"', CPF = '"+funcParam.getCPF()+"', BirthDate = '"+funcParam.getBirthDate()+"', MobilePhone = '"+funcParam.getMobilePhone()+"', Phone = '"+funcParam.getPhone()+"', Mail = '"+funcParam.getMail()+"', CEP = '"+funcParam.getCEP()+"', Address = '"+funcParam.getAddress()+"', Number = '"+funcParam.getNumber()+"', District = '"+funcParam.getDistrict()+"', City = '"+funcParam.getCity()+"', UF = '"+funcParam.getUF()+"', Graduation = '"+funcParam.getGraduation()+"'; ");
+            PreparedStatement ps = con.prepareStatement("UPDATE Funcionario SET Name='"+funcParam.getName()+"', RG = '"+funcParam.getRG()+"', CPF = '"+funcParam.getCPF()+"', BirthDate = '"+funcParam.getBirthDate()+"', MobilePhone = '"+funcParam.getMobilePhone()+"', Phone = '"+funcParam.getPhone()+"', Mail = '"+funcParam.getMail()+"', CEP = '"+funcParam.getCEP()+"', Address = '"+funcParam.getAddress()+"', Number = '"+funcParam.getNumber()+"', District = '"+funcParam.getDistrict()+"', City = '"+funcParam.getCity()+"', UF = '"+funcParam.getUF()+"', Graduation = '"+funcParam.getGraduation()+"' WHERE IdReg="+funcParam.getIdReg()+"; ");
 
             ps.execute();
             con.close();

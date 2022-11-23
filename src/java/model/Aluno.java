@@ -9,54 +9,46 @@ import java.util.Date;
  */
 public class Aluno {
 
-    private int Rm;
-    private String fullName;
+    private int RM;
+    private String Name;
     private String RG;
     private String CPF;
-    private String birthCertificate;
-    private Date   dataNasc;
-    private String responsavelMae;
+    private String BirthCertificate;
+    private Date   BirthDate;
+    private String ResponsavelMae;
     private String RGMae;
     private String CPFMae;
-    private String responsavelPai;
+    private String ResponsavelPai;
     private String RGPai;
     private String CPFPai;
-    private String mobilePhone;
+    private String MobilePhone;
     private String Phone;
     private String Mail;
     private String CEP;
-    private String address;
-    private String number;
-    private String city;
-    private String district;
-    private String birthCity;
+    private String Address;
+    private String Number;
+    private String District;
+    private String City;
+    private String BirthCity;
     private String UF;
     private boolean isMatriculado;
     private int FkClass;
+    
 
-
-    public String getUF() {
-        return UF;
+    public int getRM() {
+        return RM;
     }
 
-    public void setUF(String UF) {
-        this.UF = UF;
+    public void setRM(int RM) {
+        this.RM = RM;
     }
 
-    public int getRm() {
-        return Rm;
+    public String getName() {
+        return Name;
     }
 
-    public void setRm(int Rm) {
-        this.Rm = Rm;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
     public String getRG() {
@@ -76,27 +68,27 @@ public class Aluno {
     }
 
     public String getBirthCertificate() {
-        return birthCertificate;
+        return BirthCertificate;
     }
 
-    public void setBirthCertificate(String birthCertificate) {
-        this.birthCertificate = birthCertificate;
+    public void setBirthCertificate(String BirthCertificate) {
+        this.BirthCertificate = BirthCertificate;
     }
 
-    public Date getDataNasc() {
-        return dataNasc;
+    public Date getBirthDate() {
+        return BirthDate;
     }
 
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
+    public void setBirthDate(Date BirthDate) {
+        this.BirthDate = BirthDate;
     }
 
     public String getResponsavelMae() {
-        return responsavelMae;
+        return ResponsavelMae;
     }
 
-    public void setResponsavelMae(String responsavelMae) {
-        this.responsavelMae = responsavelMae;
+    public void setResponsavelMae(String ResponsavelMae) {
+        this.ResponsavelMae = ResponsavelMae;
     }
 
     public String getRGMae() {
@@ -115,6 +107,14 @@ public class Aluno {
         this.CPFMae = CPFMae;
     }
 
+    public String getResponsavelPai() {
+        return ResponsavelPai;
+    }
+
+    public void setResponsavelPai(String ResponsavelPai) {
+        this.ResponsavelPai = ResponsavelPai;
+    }
+
     public String getRGPai() {
         return RGPai;
     }
@@ -131,20 +131,12 @@ public class Aluno {
         this.CPFPai = CPFPai;
     }
 
-    public String getResponsavelPai() {
-        return responsavelPai;
-    }
-
-    public void setResponsavelPai(String responsavelPai) {
-        this.responsavelPai = responsavelPai;
-    }
-
     public String getMobilePhone() {
-        return mobilePhone;
+        return MobilePhone;
     }
 
-    public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
+    public void setMobilePhone(String MobilePhone) {
+        this.MobilePhone = MobilePhone;
     }
 
     public String getPhone() {
@@ -172,46 +164,54 @@ public class Aluno {
     }
 
     public String getAddress() {
-        return address;
+        return Address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String Address) {
+        this.Address = Address;
     }
 
     public String getNumber() {
-        return number;
+        return Number;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+    public void setNumber(String Number) {
+        this.Number = Number;
     }
 
     public String getDistrict() {
-        return district;
+        return District;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setDistrict(String District) {
+        this.District = District;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String City) {
+        this.City = City;
     }
 
     public String getBirthCity() {
-        return birthCity;
+        return BirthCity;
     }
 
-    public void setBirthCity(String birthCity) {
-        this.birthCity = birthCity;
+    public void setBirthCity(String BirthCity) {
+        this.BirthCity = BirthCity;
     }
 
-    public boolean getIsIsMatriculado() {
+    public String getUF() {
+        return UF;
+    }
+
+    public void setUF(String UF) {
+        this.UF = UF;
+    }
+
+    public boolean isIsMatriculado() {
         return isMatriculado;
     }
 
@@ -226,8 +226,8 @@ public class Aluno {
     public void setFkClass(int FkClass) {
         this.FkClass = FkClass;
     }
+
     
-    
-    
+
 
 }
