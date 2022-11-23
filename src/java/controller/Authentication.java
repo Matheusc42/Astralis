@@ -47,9 +47,6 @@ public class Authentication extends HttpServlet {
             String user = request.getParameter("user");
             String pwd = request.getParameter("pwd");
 
-            out.print("Usuario :" + user + "<br>");
-            out.print("Senha :" + pwd + "<br>");
-
             //Criando objeto de parametro
             Funcionario funcParam = new Funcionario();
 

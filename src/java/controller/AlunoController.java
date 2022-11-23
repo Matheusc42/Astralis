@@ -113,6 +113,24 @@ public class AlunoController extends HttpServlet {
             response.sendRedirect("gerenciarAlunos.jsp");
 
         }
+    
+
+
+
+        //::::ACTION::::
+        //Deletar Aluno
+        if(action != null && action.equals("deletarAluno")){
+
+            //Capturando e setando o ID
+            int RM = Integer.parseInt(request.getParameter("RM"));
+            alunoParam.setRM(RM);
+
+            //Passando objeto parametro pra AlunoDAO
+            AlunoDAO.deleteStudent(alunoParam);
+
+            //Redirecionando para a tela de gerenciamento
+            response.sendRedirect("gerenciarAlunos.jsp");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

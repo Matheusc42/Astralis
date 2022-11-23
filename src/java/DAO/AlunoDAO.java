@@ -77,38 +77,37 @@ public class AlunoDAO {
         return returnList;
     }
     
-
     public static void newStudent(Aluno alunoParam){
 
         try {
             
             Connection con = ConnectDB.getConnection();
-            PreparedStatement ps = con.prepareStatement("INSERT INTO alunos (`Name`,`RG`,`CPF`,`birthCertificate`,`birthDate`,`responsavelMae`,`RGMae`,`CPFMae`,`reponsavelPai`,`RGPai`, `CPFPai`, `mobilePhone`, `Phone`, `Mail`, `CEP`, `Address`, `Number`, `District`, `UF`, `birthCity`, `isMatriculado`, `City`) VALUES ('" + alunoParam.getName() + "','"+alunoParam.getRG()+"','"+alunoParam.getCPF()+"','"+alunoParam.getBirthCertificate()+"','" + alunoParam.getBirthDate() + "','"+alunoParam.getResponsavelMae()+"','"+alunoParam.getRGMae()+"','"+alunoParam.getCPFMae()+"','"+alunoParam.getResponsavelPai()+"','"+alunoParam.getRGPai()+"','"+alunoParam.getCPFPai()+"','"+alunoParam.getMobilePhone()+"','"+alunoParam.getPhone()+"','"+alunoParam.getMail()+"','"+alunoParam.getCEP()+"','"+alunoParam.getAddress()+"','"+alunoParam.getNumber()+"','"+alunoParam.getDistrict()+"','"+alunoParam.getUF()+"','"+alunoParam.getBirthCity()+"','"+alunoParam.isIsMatriculado()+"','"+alunoParam.getCity()+"');");
-            
+            PreparedStatement ps = con.prepareStatement("INSERT INTO alunos (`Name`,`RG`,`CPF`,`birthCertificate`,`birthDate`,`responsavelMae`,`RGMae`,`CPFMae`,`reponsavelPai`,`RGPai`, `CPFPai`, `mobilePhone`, `Phone`, `Mail`, `CEP`, `Address`, `Number`, `District`, `UF`, `birthCity`, `isMatriculado`, `City`) VALUES ('" + alunoParam.getName() + "','"+alunoParam.getRG()+"','"+alunoParam.getCPF()+"','"+alunoParam.getBirthCertificate()+"','" + alunoParam.getBirthDate() + "','"+alunoParam.getResponsavelMae()+"','"+alunoParam.getRGMae()+"','"+alunoParam.getCPFMae()+"','"+alunoParam.getResponsavelPai()+"','"+alunoParam.getRGPai()+"','"+alunoParam.getCPFPai()+"','"+alunoParam.getMobilePhone()+"','"+alunoParam.getPhone()+"','"+alunoParam.getMail()+"','"+alunoParam.getCEP()+"','"+alunoParam.getAddress()+"','"+alunoParam.getNumber()+"','"+alunoParam.getDistrict()+"','"+alunoParam.getUF()+"','"+alunoParam.getBirthCity()+"',"+alunoParam.isIsMatriculado()+",'"+alunoParam.getCity()+"');");
+
             ps.execute();
             con.close();
             
         } catch (SQLException e) {
-            System.out.println("Error: " + e);
+            System.out.println("Error:"  + e);
         }
     }
 
-    // public static void deleteStudent(Aluno alunoParam){
+    public static void deleteStudent(Aluno alunoParam){
 
-    //     try{
+        try{
 
-    //         Connection con = ConnectDB.getConnection();
-    //         PreparedStatement ps = null;
-    //         ps = con.prepareStatement("DELETE FROM alunos WHERE RM = ?");
-    //         ps.setDouble(1, alunoParam.getRm());
+            Connection con = ConnectDB.getConnection();
+            PreparedStatement ps = null;
+            ps = con.prepareStatement("DELETE FROM alunos WHERE RM = ?");
+            ps.setInt(1, alunoParam.getRM());
             
-    //         ps.execute();
-    //         con.close();
+            ps.execute();
+            con.close();
 
-    //     }catch(SQLException e){
-    //         System.out.println("Error: " + e);
-    //     }
-    // }
+        }catch(SQLException e){
+            System.out.println("Error: " + e);
+        }
+    }
 
     // public static Aluno getStudentById (Aluno alunoParam){
 
