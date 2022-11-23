@@ -44,7 +44,7 @@
                 <td><% out.print(allStudents.get(i).getBirthDate());%></td>
                 <td><a href="atualizarAluno.jsp?Rm=<% out.print(allStudents.get(i).getRM());%>"> <button> Editar </button> </a></td>
                 <td><a href="Aluno?action=deletarAluno&RM=<% out.print(allStudents.get(i).getRM());%>"> <button> Excluir </button> </a> </td>
-                <td><button> Matricular </button> </td>
+                <td><a href="matricularAluno.jsp?RM=<% out.print(allStudents.get(i).getRM());%>"> <% if(allStudents.get(i).getIsMatriculado()){ out.print("<button disabled>"); } else { out.print("<button>");}; %> Matricular </button> </a> </td>
             </tr>
             <%}%>
         </table>

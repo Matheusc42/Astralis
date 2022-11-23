@@ -31,6 +31,7 @@
                 <th> Ano Letivo </th>
                 <th> Editar </th>
                 <th> Excluir </th>
+                <th> Gerenciar </th>
             </tr>
             <% 
                 for(int i = 0; i < allClasses.size(); i++){
@@ -41,6 +42,7 @@
                 <td><% out.print(allClasses.get(i).getSchoolYear());%></td>
                 <td><a href="atualizarClasse.jsp?IdReg=<% out.print(allClasses.get(i).getIdReg());%>"> <button> Editar </button> </a></td>
                 <td><a href="Classe?action=deletarClasse&IdReg=<% out.print(allClasses.get(i).getIdReg());%>"> <button> Excluir </button> </a> </td>
+                <td><a href="detalhesClasse.jsp?IdReg=<% out.print(allClasses.get(i).getIdReg());%>"> <button> Gerenciar </button> </a></td>
             </tr>
             <%}%>
         </table>

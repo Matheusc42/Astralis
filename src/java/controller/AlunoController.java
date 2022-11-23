@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Aluno;
+import model.Classe;
 
 /**
  *
@@ -115,8 +116,6 @@ public class AlunoController extends HttpServlet {
         }
     
 
-
-
         //::::ACTION::::
         //Deletar Aluno
         if(action != null && action.equals("deletarAluno")){
@@ -131,6 +130,31 @@ public class AlunoController extends HttpServlet {
             //Redirecionando para a tela de gerenciamento
             response.sendRedirect("gerenciarAlunos.jsp");
         }
+    
+    
+        //::::ACTION::::
+        //Matricular Aluno
+        if(action != null && action.equals("matricularAluno")){
+
+            //Recuperando parametros do obj aluno
+            int RM = Integer.parseInt(request.getParameter("RM"));
+            alunoParam.setRM(RM);
+
+            //Recuperando parametros do obj classe
+            Classe classeParam = new Classe();
+
+            int IdClasse = Integer.parseInt(request.getParameter("IdClasse"));
+            classeParam.setIdReg(IdClasse);
+
+            //Passando objetos de parametro para a DAO
+            AlunoDAO.registerStudent(alunoParam, classeParam);
+
+            //Redirecionando para o gerenciamento de alunos.
+            response.sendRedirect("gerenciarAlunos.jsp");
+
+        }
+    
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

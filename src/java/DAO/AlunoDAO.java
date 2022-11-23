@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
 import model.Aluno;
+import model.Classe;
 
 
 public class AlunoDAO {
@@ -31,7 +32,7 @@ public class AlunoDAO {
         try {
 
             Connection con = ConnectDB.getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM alunos;");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM alunos ORDER BY RM;");
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){
@@ -110,95 +111,111 @@ public class AlunoDAO {
         }
     }
 
-     public static Aluno getStudentById (Aluno alunoParam){
+    public static void registerStudent(Aluno alunoParam, Classe classeParam){
 
-        //Criando objeto de retorno
-         Aluno returnAluno = new Aluno();
+        try{
 
-      try {
+            Connection con = ConnectDB.getConnection();
+            PreparedStatement ps = null;
+            ps = con.prepareStatement("UPDATE alunos SET ForeignKeyClass = "+classeParam.getIdReg()+", isMatriculado = 1 WHERE RM = "+alunoParam.getRM()+";");
+            
+            ps.execute();
+            con.close();
 
-             //Conectando ao banco de dados e resgatando um funcionario pelo Id
-             Connection con = ConnectDB.getConnection();
-             PreparedStatement ps = null;
-             ps = con.prepareStatement("SELECT * FROM alunos WHERE RM = ?");
-             ps.setDouble(1, alunoParam.getRM());
-             ResultSet rs = ps.executeQuery();
+        }catch(SQLException e){
+            System.out.println("Error: " + e);
+        }
+    }
 
-             while(rs.next()){
+    //public static Aluno getStudentById (Aluno alunoParam){
 
-                 //Setando atributos do objeto de retorno
-                 returnAluno.setRM(rs.getInt("RM"));
-                 returnAluno.setName(rs.getString("Name"));
-                 returnAluno.setRG(rs.getString("RG"));
-                 returnAluno.setCPF(rs.getString("CPF"));
-                 returnAluno.setBirthCertificate(rs.getString("birthCertificate"));
-                 returnAluno.setDataNasc(rs.getDate("birthDate"));
-                 returnAluno.setResponsavelMae(rs.getString("responsavelMae"));
-                 returnAluno.setRGMae(rs.getString("RGMae"));
-                 returnAluno.setCPFMae(rs.getString("CPFMae"));
-                 returnAluno.setResponsavelPai(rs.getString("responsavelPai"));
-                 returnAluno.setRGPai(rs.getString("RGPai"));
-                 returnAluno.setCPFPai(rs.getString("CPFPai"));
-                 returnAluno.setMobilePhone(rs.getString("MobilePhone"));
-                 returnAluno.setPhone(rs.getString("Phone"));
-                 returnAluno.setMail(rs.getString("Mail"));
-                 returnAluno.setCEP(rs.getString("CEP"));
-                 returnAluno.setAddress(rs.getString("Address"));
-                 returnAluno.setNumber(rs.getString("Number"));
-                 returnAluno.setDistrict(rs.getString("District"));
-                 returnAluno.setUF(rs.getString("UF"));
-                 returnAluno.setCity(rs.getString("birthCity"));
-                 returnAluno.setIsMatriculado(rs.getBoolean("isMatriculado"));
+//         //Criando objeto de retorno
+//          Aluno returnAluno = new Aluno();
+
+//       try {
+
+//              //Conectando ao banco de dados e resgatando um funcionario pelo Id
+//              Connection con = ConnectDB.getConnection();
+//              PreparedStatement ps = null;
+//              ps = con.prepareStatement("SELECT * FROM alunos WHERE RM = ?");
+//              ps.setDouble(1, alunoParam.getRM());
+//              ResultSet rs = ps.executeQuery();
+
+//              while(rs.next()){
+
+//                  //Setando atributos do objeto de retorno
+//                  returnAluno.setRM(rs.getInt("RM"));
+//                  returnAluno.setName(rs.getString("Name"));
+//                  returnAluno.setRG(rs.getString("RG"));
+//                  returnAluno.setCPF(rs.getString("CPF"));
+//                  returnAluno.setBirthCertificate(rs.getString("birthCertificate"));
+//                  returnAluno.setDataNasc(rs.getDate("birthDate"));
+//                  returnAluno.setResponsavelMae(rs.getString("responsavelMae"));
+//                  returnAluno.setRGMae(rs.getString("RGMae"));
+//                  returnAluno.setCPFMae(rs.getString("CPFMae"));
+//                  returnAluno.setResponsavelPai(rs.getString("responsavelPai"));
+//                  returnAluno.setRGPai(rs.getString("RGPai"));
+//                  returnAluno.setCPFPai(rs.getString("CPFPai"));
+//                  returnAluno.setMobilePhone(rs.getString("MobilePhone"));
+//                  returnAluno.setPhone(rs.getString("Phone"));
+//                  returnAluno.setMail(rs.getString("Mail"));
+//                  returnAluno.setCEP(rs.getString("CEP"));
+//                  returnAluno.setAddress(rs.getString("Address"));
+//                  returnAluno.setNumber(rs.getString("Number"));
+//                  returnAluno.setDistrict(rs.getString("District"));
+//                  returnAluno.setUF(rs.getString("UF"));
+//                  returnAluno.setCity(rs.getString("birthCity"));
+//                  returnAluno.setIsMatriculado(rs.getBoolean("isMatriculado"));
           
-             }
+//              }
 
-             //Fechando conexao com o Banco de Dados
-             con.close();
+//              //Fechando conexao com o Banco de Dados
+//              con.close();
 
-         } catch (Exception e) {
-             System.out.println("Error: " + e);
-         }
+//          } catch (Exception e) {
+//              System.out.println("Error: " + e);
+//          }
 
-         //Retornando objeto Funcionario
-         return returnAluno;
-     }
+//          //Retornando objeto Funcionario
+//          return returnAluno;
+//      }
 
-     public void updateStudent(Aluno alunoParam){
+//      public void updateStudent(Aluno alunoParam){
 
-         try {
-             Connection con = ConnectDB.getConnection();
-             PreparedStatement ps = null;
-             ps = con.prepareStatement("UPDATE alunos SET Name = ?, RG = ?, CPF = ?, birthCertificate = ?, birthDate = ?, responsavelMae = ?, RGMae = ?, CPFMae = ?, responsavelPai = ?, RGPai = ?, CPFPai = ?, mobilePhone = ?, Phone = ?, Mail = ?, CEP = ?, Address = ?, Number = ?, District = ?, UF = ?, birthCity = ?  WHERE RM = ?;");
+//          try {
+//              Connection con = ConnectDB.getConnection();
+//              PreparedStatement ps = null;
+//              ps = con.prepareStatement("UPDATE alunos SET Name = ?, RG = ?, CPF = ?, birthCertificate = ?, birthDate = ?, responsavelMae = ?, RGMae = ?, CPFMae = ?, responsavelPai = ?, RGPai = ?, CPFPai = ?, mobilePhone = ?, Phone = ?, Mail = ?, CEP = ?, Address = ?, Number = ?, District = ?, UF = ?, birthCity = ?  WHERE RM = ?;");
             
-             ps.setString(1, alunoParam.getName());
-             ps.setString(2,alunoParam.getRG());
-             ps.setString(3,alunoParam.getCPF());
-             ps.setString(4,alunoParam.getBirthCertificate());
-             ps.setDate(5, alunoParam.getDataNasc());
-             ps.setString(6,alunoParam.getResponsavelMae());
-             ps.setString(7,alunoParam.getRGMae());
-             ps.setString(8,alunoParam.getCPFMae());
-             ps.setString(9,alunoParam.getResponsavelPai());
-             ps.setString(10,alunoParam.getRGPai());
-             ps.setString(11,alunoParam.getCPFPai());
-             ps.setString(12,alunoParam.getMobilePhone());
-             ps.setString(13,alunoParam.getPhone());
-             ps.setString(14,alunoParam.getMail());
-             ps.setString(15,alunoParam.getCEP());
-             ps.setString(16,alunoParam.getAddress());
-             ps.setString(17,alunoParam.getNumber());
-             ps.setString(18,alunoParam.getDistrict());
-             ps.setString(19,alunoParam.getUF());
-             ps.setString(20,alunoParam.getBirthCity());
-             ps.setInt(23, alunoParam.getRM());
+//              ps.setString(1, alunoParam.getName());
+//              ps.setString(2,alunoParam.getRG());
+//              ps.setString(3,alunoParam.getCPF());
+//              ps.setString(4,alunoParam.getBirthCertificate());
+//              ps.setDate(5, alunoParam.getDataNasc());
+//              ps.setString(6,alunoParam.getResponsavelMae());
+//              ps.setString(7,alunoParam.getRGMae());
+//              ps.setString(8,alunoParam.getCPFMae());
+//              ps.setString(9,alunoParam.getResponsavelPai());
+//              ps.setString(10,alunoParam.getRGPai());
+//              ps.setString(11,alunoParam.getCPFPai());
+//              ps.setString(12,alunoParam.getMobilePhone());
+//              ps.setString(13,alunoParam.getPhone());
+//              ps.setString(14,alunoParam.getMail());
+//              ps.setString(15,alunoParam.getCEP());
+//              ps.setString(16,alunoParam.getAddress());
+//              ps.setString(17,alunoParam.getNumber());
+//              ps.setString(18,alunoParam.getDistrict());
+//              ps.setString(19,alunoParam.getUF());
+//              ps.setString(20,alunoParam.getBirthCity());
+//              ps.setInt(23, alunoParam.getRM());
             
-             ps.execute();
-             con.close();
+//              ps.execute();
+//              con.close();
             
-         } catch (SQLException e) {
-             System.out.println("Error: " + e);
-         }
-     }
+//          } catch (SQLException e) {
+//              System.out.println("Error: " + e);
+//          }
+//      }
 }
 
 
