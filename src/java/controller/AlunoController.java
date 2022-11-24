@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controller;
 
 import DAO.AlunoDAO;
@@ -36,7 +32,7 @@ public class AlunoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-        
+        PrintWriter out = response.getWriter();
         //Recebendo parametro de ação
         String action = request.getParameter("action");
       
@@ -131,6 +127,26 @@ public class AlunoController extends HttpServlet {
             response.sendRedirect("gerenciarAlunos.jsp");
         }
     
+
+        //::::ACTION::::
+        //Atualizar Aluno
+        if(action != null && action.equals("atualizarAluno")){
+
+            //Capturando e setando o RM
+            int RM = Integer.parseInt(request.getParameter("RM"));
+            alunoParam.setRM(RM);
+
+            //Setando data de nascimento
+            java.sql.Date SQLDate = new java.sql.Date(sdf.parse(BirthDate).getTime());
+            alunoParam.setBirthDate(SQLDate);
+
+            //Passando objParametro para a função DAO
+            AlunoDAO.updateStudent(alunoParam);
+
+            //Redirecionando para a pagina de gerenciamento
+            response.sendRedirect("gerenciarAlunos.jsp");
+        }
+ 
     
         //::::ACTION::::
         //Matricular Aluno
@@ -153,7 +169,28 @@ public class AlunoController extends HttpServlet {
             response.sendRedirect("gerenciarAlunos.jsp");
 
         }
-    
+        
+
+
+        //::::ACTION::::
+        //Cancelar Matricula
+        if(action != null && action.equals("excluirMatricula")){
+
+            //Recuperando parametros do obj aluno
+            int RM = Integer.parseInt(request.getParameter("RM"));
+            alunoParam.setRM(RM);
+            out.print(RM);
+            //Recuperando parametros do obj classe
+            int IdClasse = Integer.parseInt(request.getParameter("IdClasse"));
+            out.print(IdClasse);
+            
+            //Passando objetos de parametro para a DAO
+            AlunoDAO.unregisterStudent(alunoParam);
+
+            //Redirecionando para o gerenciamento de alunos.
+            response.sendRedirect("detalhesClasse.jsp?IdReg=" + Integer.toString(IdClasse));
+
+        }
     
     }
 

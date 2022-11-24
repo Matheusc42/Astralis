@@ -31,7 +31,7 @@
                 <th> Nome responsável </th>
                 <th> Data de Nascimento </th>
                 <th> Editar </th>
-                <th> Excluir </th>
+                <%-- <th> Excluir </th> --%>
                 <th> Matricular </th>
             </tr>
             <% 
@@ -42,8 +42,8 @@
                 <td><% out.print(allStudents.get(i).getName());%></td>
                 <td><% out.print(allStudents.get(i).getResponsavelMae());%></td>
                 <td><% out.print(allStudents.get(i).getBirthDate());%></td>
-                <td><a href="atualizarAluno.jsp?Rm=<% out.print(allStudents.get(i).getRM());%>"> <button> Editar </button> </a></td>
-                <td><a href="Aluno?action=deletarAluno&RM=<% out.print(allStudents.get(i).getRM());%>"> <button> Excluir </button> </a> </td>
+                <td><a href="atualizarAluno.jsp?RM=<% out.print(allStudents.get(i).getRM());%>"> <button> Editar </button> </a></td>
+                <%-- <td><a href="Aluno?action=deletarAluno&RM=<% out.print(allStudents.get(i).getRM());%>"> <button> Excluir </button> </a> </td> --%>
                 <td><a href="matricularAluno.jsp?RM=<% out.print(allStudents.get(i).getRM());%>"> <% if(allStudents.get(i).getIsMatriculado()){ out.print("<button disabled>"); } else { out.print("<button>");}; %> Matricular </button> </a> </td>
             </tr>
             <%}%>

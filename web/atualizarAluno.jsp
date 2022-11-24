@@ -1,45 +1,33 @@
 <%@page import="DAO.AlunoDAO"%>
 <%@page import="model.Aluno"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" language="java"%> 
-<%@page import="DAO.FuncionarioDAO"%> 
-<%@page import="model.Funcionario"%>
+
 <!DOCTYPE html>
 <html>
   <head>
     <script type="text/javascript" src="./Js/modal.js"></script>
-    <link rel="stylesheet" href="./CSS/modal.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Visão Geral Aluno</title>
   </head>
   <body>
   <%
-      //Resgatando o parametro de msg da sessao.
-      String msg = (String) request.getSession().getAttribute("msg");
-
-      //Resgatando o Id do Usuario atual
+      
+      //Resgatando o Id do aluno atual
       int RM = Integer.parseInt(request.getParameter("RM"));
 
-      //Criando objeto funcionario de parametro de entrada com o Id atual
+      //Criando objeto aluno de parametro de entrada com o Id atual
       Aluno alunoParam = new Aluno();
       alunoParam.setRM(RM);
 
       //Armazenando em um objeto funcionario os dados sobre o funcionario atual
-      Aluno currentAluno = AlunoDAO.getStudentById(alunoParam);
+      Aluno currentAluno = AlunoDAO.getOneStudentById(alunoParam);
   %>
-  <div class="modalBG" id="modal" >
-    <div class="modalContainer">
-      <div class="formContainer">
-          <button onclick="closeModal()"> Cancelar </button>
-      </div>
-    </div>
-  </div>
-
-
+  
   <a href="gerenciarFuncionarios.jsp"> <button> Voltar </button> </a>
     <h1>Aluno: Visão Geral</h1>
 
     <form action="Aluno?action=atualizarAluno&RM=<%out.print(currentAluno.getRM());%>" method="post">
-      Id
+      RM
       <input type="text" name="RM" value ="<%out.print(currentAluno.getRM());%>" readonly>
       <br />
       Nome: 

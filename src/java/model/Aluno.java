@@ -227,13 +227,7 @@ public class Aluno {
         this.FkClass = FkClass;
     }
 
-    public void setDataNasc(java.sql.Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public java.sql.Date getDataNasc() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
     
 
