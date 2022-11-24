@@ -1,3 +1,10 @@
+<%@page import="model.Funcionario"%>
+<% 
+       Funcionario user = (Funcionario) request.getSession().getAttribute("user");
+       if(user != null) {
+          response.sendRedirect("mainMenu.jsp");
+       }
+     %>
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>

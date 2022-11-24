@@ -12,6 +12,13 @@
 <%@page import="model.Funcionario" %>
 <%@page import="DAO.AssigmentDAO" %>
 
+<% 
+       Funcionario user = (Funcionario) request.getSession().getAttribute("user");
+       if(user == null) {
+          response.sendRedirect("loginScreen.jsp");
+       }
+     %>
+
         <%
             //Resgatando parametros da URL
             int IdReg = Integer.parseInt(request.getParameter("IdReg"));

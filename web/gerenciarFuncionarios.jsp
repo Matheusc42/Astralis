@@ -3,6 +3,13 @@
 <%@page import="model.Funcionario"%>
 <%@page import="java.util.*"%>
 
+<% 
+       Funcionario user = (Funcionario) request.getSession().getAttribute("user");
+       if(user == null) {
+          response.sendRedirect("loginScreen.jsp");
+       }
+     %>
+
 <!DOCTYPE html>
 <html>
   <head>

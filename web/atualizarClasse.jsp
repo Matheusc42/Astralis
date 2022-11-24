@@ -7,6 +7,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Classe"%>
 <%@page import="DAO.ClasseDAO" %>
+<%@page import="model.Funcionario"%>
+
+<% 
+       Funcionario user = (Funcionario) request.getSession().getAttribute("user");
+       if(user == null) {
+          response.sendRedirect("loginScreen.jsp");
+       }
+     %>
 <!DOCTYPE html>
 <html>
     <head>
