@@ -1,8 +1,3 @@
-<%-- 
-    Document   : painelAtribuicao
-    Created on : 21 de nov. de 2022, 22:50:59
-    Author     : sfcma
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="DAO.ClasseDAO" %>
@@ -33,58 +28,78 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="./CSS/tableLayout.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><%out.print(currentClasse.getName());%> | Atribuição de aula</title>
     </head>
     <body>
-        <a href="gerenciarAtribuicao.jsp"><button>Voltar</button></a>
-        <h1><%out.print(currentClasse.getName());%></h1>
-        <h3> Professores associados a essa turma: </h3>
-        
+        <header>
+            <div class="logoContainer">
+                <a href="mainMenu.jsp"><img src="./Assets/Logo_Branco.png"></a>
+            </div>
+            <div class="menuContainer">
+            <a href="mainMenu.jsp">Inicio</a>
+            </div>
+            <div class="welcomeContainer">        
+                <%out.print(" <p>Olá, " + user.getUser() + "<br>");%>
+                Você esta logado como:<br>
+                <%out.print(user.getPosition() + "</p>");%>
+                <img src="./Assets/profile.png">
+            </div>
+            <div class="logoutContainer">
+                <a href="Authentication?action=Logout"><img src="./Assets/logout.png"></a>
+            </div>
+        </header>
+
         <%
             List<Funcionario> assignedFunc = AssigmentDAO.getAssignedDocente(classeParam);
-        %>
-
-        <table border="1px">
-            <tr> 
-                <th> Nome </th>
-                <th> Formação </th>
-            </tr>
-            <%
-                for(int i = 0; i < assignedFunc.size(); i++){
-            %>
-            <tr>
-                <td><%out.print(assignedFunc.get(i).getName());%></td>
-                <td><%out.print(assignedFunc.get(i).getGraduation());%></td>
-            </tr>    
-        <%}%> 
-        </table>
-
-
-
-        <%
             List<Funcionario> availableFunc = FuncionarioDAO.getAllDocente();
         %>
-        <h3> Professores para atribuição: </h3>
 
-        <table border="1px">
-            <tr>
-                <th> Id </th>
-                <th> Nome </th>
-                <th> Formação </th>
-                <th> Atribuição </th> 
-            </tr>
-            <%
-                for(int i = 0; i < availableFunc.size(); i++){
-            %>
-            <tr>
-                <td><%out.print(availableFunc.get(i).getIdReg());%></td>
-                <td><%out.print(availableFunc.get(i).getName());%></td>
-                <td><%out.print(availableFunc.get(i).getGraduation());%></td>
-                <td><a href="Assigment?action=novaAtr&idFunc=<%out.print(availableFunc.get(i).getIdReg());%>&idClasse=<%out.print(currentClasse.getIdReg());%>"><button>Atribuição</button></a></td>
-            </tr>    
-            <%}%>  
-        </table>
-
+        <div class="mainContainer">
+            <div class="contentContainer">
+                <h1><%out.print(currentClasse.getName());%></h1>    
+                <div class="tableContainer">
+                    <h3> Professores associados a essa turma: </h3>
+                    <table>
+                        <tr> 
+                            <th id="left"> Nome </th>
+                            <th id="left"> Formação </th>
+                        </tr>
+                        <%
+                            for(int i = 0; i < assignedFunc.size(); i++){
+                        %>
+                        <tr id="trHover">
+                            <td id="left"><%out.print(assignedFunc.get(i).getName());%></td>
+                            <td id="left"><%out.print(assignedFunc.get(i).getGraduation());%></td>
+                        </tr>    
+                    <%}%> 
+                    </table>
+                </div>
+                <div class="tableContainer">
+                    <h3> Professores para atribuição: </h3>
+                    <table>
+                        <tr>
+                            
+                            <th id="left"> Nome </th>
+                            <th id="left"> Formação </th>
+                            <th id="center"> Atribuição </th> 
+                        </tr>
+                        <%
+                            for(int i = 0; i < availableFunc.size(); i++){
+                        %>
+                        <tr id="trHover">
+                            <td id="left"><%out.print(availableFunc.get(i).getName());%></td>
+                            <td id="left"><%out.print(availableFunc.get(i).getGraduation());%></td>
+                            <td id="center"><a href="Assigment?action=novaAtr&idFunc=<%out.print(availableFunc.get(i).getIdReg());%>&idClasse=<%out.print(currentClasse.getIdReg());%>"><button>Atribuição</button></a></td>
+                        </tr>    
+                        <%}%>  
+                    </table>
+                </div>
+                <div class="buttonContainers">
+                    <a href="gerenciarAtribuicao.jsp"><button>Voltar</button></a>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

@@ -68,7 +68,6 @@ public class FuncionarioDAO {
         //Retornando lista de funcionarios
         return returnList;
     }
-    
 
     public static void newEmployee(Funcionario funcParam){
 

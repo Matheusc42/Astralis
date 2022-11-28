@@ -16,6 +16,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="./CSS/confirmLayout.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Astralis | Confirmar Ação</title>
     </head>
@@ -23,9 +24,15 @@
         String IdReg = request.getParameter("IdReg");
     %>
     <body>
-        <h1>Atenção</h1>
-        <p>A Ação a seguir ira remover o acesso do usuario</p>
-        <a href="Funcionario?action=excluirAcesso&IdReg=<%out.print(IdReg);%>"><button> Confirmar </button> </a>
-        <a href="gerenciarFuncionarios.jsp"><button> Cancelar </button> </a>
+        <div class = "mainContainer">
+            <div class = "contentContainer">
+                <h1>Atenção</h1>
+                <p>A ação a seguir ira remover o acesso do usuario<br>Tem certeza que deseja continuar?</p>
+                <div class ="buttonContainers">
+                    <a href="Funcionario?action=excluirAcesso&IdReg=<%out.print(IdReg);%>"><button> Confirmar </button> </a>
+                    <a href="gerenciarFuncionarios.jsp"><button> Cancelar </button> </a>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

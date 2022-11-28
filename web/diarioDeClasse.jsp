@@ -1,5 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Classe"%>
+<%@page import="DAO.ClasseDAO" %>
+<%@page import="java.util.*"%>
 <%@page import="model.Funcionario"%>
+
 <% 
        Funcionario user = (Funcionario) request.getSession().getAttribute("user");
        if(user == null) {
@@ -9,10 +13,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./CSS/Classe/classeLayout.css"/>
+        <link rel="stylesheet" href="./CSS/cardLayout.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Astralis | Nova Classe</title>
+        <title>Astralis | Gerenciar Classe</title>
     </head>
+
+
     <body>
 
         <header>
@@ -33,20 +39,35 @@
             </div>
         </header>
 
+        <%
+            List<Classe> assignedClass = ClasseDAO.getAllAssignedClassByFuncId(user);
+        %>
+
         <div class="mainContainer">
             <div class="contentContainer">
-                <h1>Nova Classe</h1>
-                <form action="Classe?action=novaClasse" method="post">
-                    <input type="text" name="name" placeholder="Turma"/><br>
-                    <input type="text" name="schoolYear" placeholder="Ano Letivo"/><br>
-                    <button> Cadastrar </button>
-                </form>
+                <div class="titleContainer">
+                    <h1>Diario de Classe</h1>
+                </div>
+                <br>
+                <div class=gridContainer>
+                    <% 
+                        for(int i = 0; i < assignedClass.size(); i++){
+                    %>
+                        <a href="salaDeAula.jsp?IdReg=<% out.print(assignedClass.get(i).getIdReg());%>">
+                            <div class="cardContainer">
+                                <h1><% out.print(assignedClass.get(i).getName());%></h1>
+                                <br>
+                                <p>ID de turma: <% out.print(assignedClass.get(i).getIdReg());%></p>
+                                <p>Ano Letivo: <% out.print(assignedClass.get(i).getSchoolYear());%></p>         
+                            </div>
+                        </a>
+                    <%}%>
+                </div>
+                <br>
                 <div class="buttonContainers">
-                    <a href="gerenciarClasses.jsp"><button>Voltar</button></a>    
+                    <a href="mainMenu.jsp"><button>Voltar</button></a>    
                 </div>
             </div>
         </div>
-
-
     </body>
 </html>

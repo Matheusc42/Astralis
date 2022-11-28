@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.modalBG {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100vh;
+  transition: all 0.5s ease-in-out;
+}
+
+.modalContainer {
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 20%;
+
+  padding: 20px;
+
+  border: 1px solid #000;
+  border-radius: 10px;
+
+  background-color: #fff;
+
+  text-align: center;
+}
+
+.modalContainer Button,
+.modalContainer input[type="submit"] {
+  z-index: 9999;
+  width: 100%;
+  padding: 5px;
+  cursor: pointer;
+
+  border: 1px solid #000;
+  border-radius: 3px;
+
+  background-color: #000;
+
+  color: #fff;
+  font-size: 16px;
+  margin-top: 10px;
+
+  transition: all 0.25s ease-in;
+}
+
+.modalContainer Button:hover {
+  background-color: rgb(49, 49, 49);
+}
+
+.modalContainer input[type="text"],
+.modalContainer input[type="password"] {
+  z-index: 9999;
+  width: 100%;
+  padding: 5px 5px 5px 10px;
+  font-size: 16px;
+  margin-top: 10px;
+
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.modalContainer input[type="text"]:focus,
+.modalContainer input[type="text"]:focus {
+  z-index: 9999;
+  box-shadow: none;
+  outline: none;
+}
+
+.pageContainer {
+  z-index: 0;
+  background-color: rgb(223, 223, 223);
+  width: 100%;
+  height: 100vh;
+}
+
+.loginContainer {
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: #fff;
+
+  border: 1px solid #000;
+  border-radius: 20px;
+
+  width: 30%;
+  height: 80vh;
+
+  padding: 50px;
+}
+
+.formContainer {
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+  width: 100%;
+}
+
+.formContainer input {
+  z-index: 0;
+  width: 100%;
+  height: 35px;
+
+  border-radius: 3px;
+
+  margin-top: 20px;
+}
+
+.formContainer input:focus {
+  z-index: 0;
+  outline: none;
+  box-shadow: none;
+  background-color: #c5c5c5;
+}
+
+.formContainer input[type="password"],
+.formContainer input[type="text"] {
+  z-index: 0;
+  font-size: 16px;
+  padding: 1px 1px 1px 5px;
+  border: 1px solid #000;
+  transition: all 0.25s ease-in-out;
+}
+
+.formContainer input[type="submit"] {
+  z-index: 0;
+  font-size: 18px;
+  color: #fff;
+
+  border: none;
+  cursor: pointer;
+
+  background-color: #5f5f5f;
+
+  transition: all 0.25s ease-in;
+}
+.formContainer input[type="submit"]:hover {
+  background-color: #383838;
+  z-index: 0;
+}
+
+.loginContainer img {
+  z-index: 0;
+  width: 100%;
+  height: 40%;
+}
+
+.formContainer p {
+  z-index: 0;
+  margin-top: 10px;
+  cursor: pointer;
+}

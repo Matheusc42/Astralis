@@ -1,0 +1,65 @@
+@import url(../header.css);
+
+.mainContainer {
+  display: flex;
+  width: 100%;
+  min-height: 89vh;
+
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgb(182, 182, 182);
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 50px;
+
+  row-gap: 20px;
+  column-gap: 20px;
+
+  width: 100%;
+
+  padding: 50px;
+
+  background-color: #fff;
+
+  border: 1px solid #000;
+  border-radius: 20px;
+}
+
+.serviceCard {
+  display: flex;
+
+  height: 250px;
+
+  border-radius: 20px;
+  border: 1px solid #000;
+
+  justify-content: space-around;
+  align-items: center;
+
+  transition: all 0.25s ease-in;
+
+  color: #000;
+  background-color: #fefefe;
+  cursor: pointer;
+}
+
+.serviceCard:hover {
+  background-color: #afacac;
+}
+
+.serviceCard img {
+  width: 100px;
+  height: 100px;
+  margin: 0 20px;
+}
+
+.serviceCard a {
+  text-decoration: none;
+}
+.serviceCard a:visited {
+  color: #000;
+}

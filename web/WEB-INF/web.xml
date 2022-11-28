@@ -20,6 +20,10 @@
         <servlet-name>Aluno</servlet-name>
         <servlet-class>controller.AlunoController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Boletim</servlet-name>
+        <servlet-class>controller.BoletimController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Authentication</servlet-name>
         <url-pattern>/Authentication</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>Aluno</servlet-name>
         <url-pattern>/Aluno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Boletim</servlet-name>
+        <url-pattern>/Boletim</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

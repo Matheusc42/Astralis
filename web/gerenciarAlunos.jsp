@@ -19,42 +19,71 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="./CSS/tableLayout.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Astralis | Gerenciar Alunos</title>
     </head>
     <body>
-        <a href="mainMenu.jsp"><button>Voltar</button></a>    
-        <h1>Gerenciar Alunos</h1>
-        <a href="novoAluno.jsp"> <button>Novo Aluno</button> </a>
-        <br><br><br>
-
+        <header>
+          <div class="logoContainer">
+            <a href="mainMenu.jsp"><img src="./Assets/Logo_Branco.png"></a>
+          </div>
+          <div class="menuContainer">
+          <a href="mainMenu.jsp">Inicio</a>
+          </div>
+          <div class="welcomeContainer">
+            
+              <%out.print(" <p>Olá, " + user.getUser() + "<br>");%>
+              Você esta logado como:<br>
+              <%out.print(user.getPosition() + "</p>");%>
+          
+              <img src="./Assets/profile.png">
+            
+          </div>
+          <div class="logoutContainer">
+            <a href="Authentication?action=Logout"><img src="./Assets/logout.png"></a>
+          </div>
+        </header>
+        
+        
         <%
         List<Aluno> allStudents = AlunoDAO.getAllStudents();
         %>
-
-    <table border="1px">
+    <div class="mainContainer">
+      <div class= "contentContainer">
+        <h1>Gerenciar Alunos</h1>
+        <div class="tableContainer">
+        <table>
             <tr>
-                <th> RM </th>
-                <th> Nome </th>
-                <th> Nome responsável </th>
-                <th> Data de Nascimento </th>
-                <th> Editar </th>
+                <th id="center"> RM </th>
+                <th id="left"> Nome </th>
+                <th id="left"> Nome responsável </th>
+                <th id="center"> Data de Nascimento </th>
+                <th id="center"> Editar </th>
                 <%-- <th> Excluir </th> --%>
-                <th> Matricular </th>
+                <th id="center"> Matricular </th>
             </tr>
             <% 
                 for(int i = 0; i < allStudents.size(); i++){
             %>
-            <tr>
-                <td><% out.print(allStudents.get(i).getRM());%></td>
-                <td><% out.print(allStudents.get(i).getName());%></td>
-                <td><% out.print(allStudents.get(i).getResponsavelMae());%></td>
-                <td><% out.print(allStudents.get(i).getBirthDate());%></td>
-                <td><a href="atualizarAluno.jsp?RM=<% out.print(allStudents.get(i).getRM());%>"> <button> Editar </button> </a></td>
+            <tr id="trHover">
+                <td id="center"><% out.print(allStudents.get(i).getRM());%></td>
+                <td id="left"><% out.print(allStudents.get(i).getName());%></td>
+                <td id="left"><% out.print(allStudents.get(i).getResponsavelMae());%></td>
+                <td id="center"><% out.print(allStudents.get(i).getBirthDate());%></td>
+                <td id="center"><a href="atualizarAluno.jsp?RM=<% out.print(allStudents.get(i).getRM());%>"> <img src ="./Assets/edit.png"> </a></td>
                 <%-- <td><a href="Aluno?action=deletarAluno&RM=<% out.print(allStudents.get(i).getRM());%>"> <button> Excluir </button> </a> </td> --%>
-                <td><a href="matricularAluno.jsp?RM=<% out.print(allStudents.get(i).getRM());%>"> <% if(allStudents.get(i).getIsMatriculado()){ out.print("<button disabled>"); } else { out.print("<button>");}; %> Matricular </button> </a> </td>
+                <td id="center"><a href="matricularAluno.jsp?RM=<% out.print(allStudents.get(i).getRM());%>"> <% if(allStudents.get(i).getIsMatriculado()){ out.print("<button disabled>"); } else { out.print("<button>");}; %> Matricular </button> </a> </td>
             </tr>
             <%}%>
         </table>
+        </div>
+        <div class = "buttonContainers">
+            <a href="mainMenu.jsp"><button>Voltar</button></a>    
+            <a href="novoAluno.jsp"> <button>Novo Aluno</button> </a>
+        </div>
+      </div>
+    </div>
+
     </body>
 </html>

@@ -43,7 +43,7 @@ public class AssigmentDAO {
         try {
             
             Connection con = ConnectDB.getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT func.name, func.graduation from atribuicao as atr INNER JOIN funcionario as func on func.IdReg = atr.IdFuncFK INNER JOIN Classe as class on class.IdReg = atr.IdClasseFK WHERE class.IdReg =" + classeParam.getIdReg() + ";");
+            PreparedStatement ps = con.prepareStatement("SELECT func.name, func.graduation from atribuicao as atr INNER JOIN funcionario as func on func.IdReg = atr.IdFuncFK INNER JOIN Classe as class on class.IdReg = atr.IdClasseFK WHERE class.IdReg =" + classeParam.getIdReg() + " ORDER BY graduation;");
             ResultSet rs = ps.executeQuery();
 
             while(rs.next()){

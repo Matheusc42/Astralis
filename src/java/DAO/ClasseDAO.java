@@ -14,6 +14,7 @@ import java.util.List;
 
 import database.ConnectDB;
 import model.Classe;
+import model.Funcionario;
 
 
 public class ClasseDAO {
@@ -121,5 +122,39 @@ public class ClasseDAO {
         } catch (SQLException e) {
             System.out.println("Error: " + e);
         } 
+    }
+
+    public static List<Classe> getAllAssignedClassByFuncId(Funcionario funcParam){
+        //Criando lista de retorno
+        List<Classe> returnList = new ArrayList<>();
+        
+        
+        try {
+            
+            //Conectando ao banco de dados para coletar as classes
+            Connection con = ConnectDB.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT IdClasseFK, c.name, c.SchoolYear FROM ATRIBUICAO, CLASSE AS c WHERE IdClasseFK = c.IdReg AND IdFuncFK = " + funcParam.getIdReg() + ";");
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                //Criando objeto classe e setando atributos para adicionar na lista
+                Classe returnClass = new Classe();
+
+                returnClass.setIdReg(rs.getInt("IdClasseFK"));
+                returnClass.setName(rs.getString("Name"));
+                returnClass.setSchoolYear(rs.getString("SchoolYear"));
+
+                //Adicionar objeto de retorno na lista
+                returnList.add(returnClass);
+
+            }
+
+            
+        } catch (SQLException e) {
+            System.out.println("Error: " + e);
+        }
+
+        return returnList;
     }
 }

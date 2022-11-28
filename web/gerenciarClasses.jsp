@@ -19,40 +19,65 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="./CSS/tableLayout.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Astralis | Gerenciar Classe</title>
     </head>
     <body>
-        <a href="mainMenu.jsp"><button>Voltar</button></a>    
-        <h1>Gerenciar Classes</h1>
-        <a href="novaClasse.jsp"> <button>Nova Classe</button> </a>
-    <br><br><br>
+    <header>
+      <div class="logoContainer">
+        <a href="mainMenu.jsp"><img src="./Assets/Logo_Branco.png"></a>
+      </div>
+      <div class="menuContainer">
+       <a href="mainMenu.jsp">Inicio</a>
+      </div>
+      <div class="welcomeContainer">        
+          <%out.print(" <p>Olá, " + user.getUser() + "<br>");%>
+          Você esta logado como:<br>
+          <%out.print(user.getPosition() + "</p>");%>
+          <img src="./Assets/profile.png">
+       </div>
+      <div class="logoutContainer">
+        <a href="Authentication?action=Logout"><img src="./Assets/logout.png"></a>
+      </div>
+    </header>
 
     <%
         List<Classe> allClasses = ClasseDAO.getAllClasses();
     %>
 
-    <table border="1px">
+    <div class="mainContainer">
+        <div class="contentContainer">
+            <h1>Gerenciar Classes</h1>
+            <div class="tableContainer">
+    <table>
             <tr>
-                <th> Id </th>
-                <th> Nome </th>
-                <th> Ano Letivo </th>
-                <th> Editar </th>
-                <th> Excluir </th>
-                <th> Gerenciar </th>
+                <th id="center"> Id </th>
+                <th id="left"> Nome </th>
+                <th id="center"> Ano Letivo </th>
+                <th id="center"> Editar </th>
+                <th id="center"> Excluir </th>
+                <th id="center"> Gerenciar </th>
             </tr>
             <% 
                 for(int i = 0; i < allClasses.size(); i++){
             %>
-            <tr>
-                <td><% out.print(allClasses.get(i).getIdReg());%></td>
-                <td><% out.print(allClasses.get(i).getName());%></td>
-                <td><% out.print(allClasses.get(i).getSchoolYear());%></td>
-                <td><a href="atualizarClasse.jsp?IdReg=<% out.print(allClasses.get(i).getIdReg());%>"> <button> Editar </button> </a></td>
-                <td><a href="Classe?action=deletarClasse&IdReg=<% out.print(allClasses.get(i).getIdReg());%>"> <button> Excluir </button> </a> </td>
-                <td><a href="detalhesClasse.jsp?IdReg=<% out.print(allClasses.get(i).getIdReg());%>"> <button> Gerenciar </button> </a></td>
+            <tr id="trHover">
+                <td id="center"><% out.print(allClasses.get(i).getIdReg());%></td>
+                <td id="left"><% out.print(allClasses.get(i).getName());%></td>
+                <td id="center"><% out.print(allClasses.get(i).getSchoolYear());%></td>
+                <td id="center"><a href="atualizarClasse.jsp?IdReg=<% out.print(allClasses.get(i).getIdReg());%>"> <img src="./Assets/edit.png"> </a></td>
+                <td id="center"><a href="Classe?action=deletarClasse&IdReg=<% out.print(allClasses.get(i).getIdReg());%>"> <img src="./Assets/delete.png"> </a> </td>
+                <td id="center"><a href="detalhesClasse.jsp?IdReg=<% out.print(allClasses.get(i).getIdReg());%>"> <button> Gerenciar </button> </a></td>
             </tr>
             <%}%>
         </table>
+            </div>
+            <div class="buttonContainers">
+                <a href="mainMenu.jsp"><button>Voltar</button></a>    
+                <a href="novaClasse.jsp"> <button>Nova Classe</button> </a>
+            </div>
+        </div>
+    </div>
     </body>
 </html>

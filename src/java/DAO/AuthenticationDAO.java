@@ -24,16 +24,20 @@ public class AuthenticationDAO {
         Funcionario returnFunc = new Funcionario();
         
         try{
+
             //Realizando consulta no banco de Dados
             Connection con = ConnectDB.getConnection();
-            PreparedStatement ps = con.prepareStatement("SELECT user, password, position FROM Funcionario WHERE user = '"+ funcParam.getUser() +"' AND password = '"+ funcParam.getPwd() +"';");
+            PreparedStatement ps = con.prepareStatement("SELECT IdReg, user, password, position, graduation FROM Funcionario WHERE user = '"+ funcParam.getUser() +"' AND password = '"+ funcParam.getPwd() +"';");
             ResultSet rs = ps.executeQuery();
             
             while(rs.next()){
+
                 //Capturando os dados do Banco de dados no objeto de retorno
+                returnFunc.setIdReg(rs.getInt("IdReg"));
                 returnFunc.setUser(rs.getString("user"));
                 returnFunc.setPwd(rs.getString("password"));
                 returnFunc.setPosition(rs.getString("Position"));
+                returnFunc.setGraduation(rs.getString("graduation"));
                 
             } 
 
