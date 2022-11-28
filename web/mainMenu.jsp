@@ -48,6 +48,11 @@ sfcma --%>
 
     <div class = "mainContainer">
       <div class = "gridContainer">
+
+
+        <%
+          if(user.getPosition().equals("Diretor")){
+        %>
         <div class = "serviceCard">
           <img src="./Assets/funcionario.png">
           <a href="gerenciarFuncionarios.jsp">
@@ -56,6 +61,13 @@ sfcma --%>
             <p>Cadastre novos funcionários, consulte seus dados e gerencie seus acessos </p>
           </a>
         </div>
+        <%
+          }
+        %>
+
+        <%
+          if(user.getPosition().equals("Diretor") || user.getPosition().equals("Secretario")){
+        %>
         <div class = "serviceCard">
           <img src="./Assets/aluno.png">
           <a href="gerenciarAlunos.jsp">
@@ -64,6 +76,13 @@ sfcma --%>
             <p>Cadastre novos alunos, consulte seus dados e gerencie a matricule seus alunos</p>
           </a>
         </div>
+        <%
+          }
+        %>
+
+        <%
+          if(user.getPosition().equals("Diretor") || user.getPosition().equals("Secretario")){
+        %>
         <div class = "serviceCard">
           <img src="./Assets/classe.png">
           <a href="gerenciarClasses.jsp">
@@ -72,6 +91,14 @@ sfcma --%>
             <p>Crie suas classes e as gerencie, consulte notas e faltas dos estudantes matriculados e gerencie os alunos matriculados</p>
           </a>
         </div>
+        <%
+          }
+        %>
+
+
+        <%
+          if(user.getPosition().equals("Diretor")){
+        %>
         <div class = "serviceCard">
           <img src="./Assets/assigment.png">
           <a href="gerenciarAtribuicao.jsp">
@@ -80,6 +107,11 @@ sfcma --%>
             <p>Gerencia a atribuição de aulas dos seus professores. Delegue turmas e disciplinas</p>
           </a>
         </div>
+        <%
+          }
+        %>
+
+
         <%
         if(user.getPosition().equals("Docente")){
       %>
@@ -92,6 +124,9 @@ sfcma --%>
           </a>
         </div>
       <%}%>
+
+
+
       </div>
     </div>    
       
