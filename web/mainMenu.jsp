@@ -30,7 +30,7 @@ sfcma --%>
       </div>
       <div class="welcomeContainer">
         
-          <%out.print(" <p>Olá, " + user.getUser() + "<br>");%>
+          <%out.print(" <p>Olá, " + user.getName() + "<br>");%>
           Você esta logado como:<br>
           <%out.print(user.getPosition() + "</p>");%>
       

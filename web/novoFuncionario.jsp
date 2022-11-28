@@ -25,7 +25,7 @@
             <a href="mainMenu.jsp">Inicio</a>
             </div>
             <div class="welcomeContainer">        
-                <%out.print(" <p>Olá, " + user.getUser() + "<br>");%>
+                <%out.print(" <p>Olá, " + user.getName() + "<br>");%>
                 Você esta logado como:<br>
                 <%out.print(user.getPosition() + "</p>");%>
                 <img src="./Assets/profile.png">
