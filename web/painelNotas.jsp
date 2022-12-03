@@ -88,7 +88,7 @@
                             <td id="center"><input type=text name="NF" value="<% out.print(listReportingSchool.get(i).getNF());%>" readonly/></td>
                             <td id="center"><input type=text name="F" value="<% out.print(listReportingSchool.get(i).getF());%>"/></td>
                             <td id="center">
-                                <select>
+                                <select name="Periodo">
                                     <option value="" disabled selected> <% out.print(listReportingSchool.get(i).getPeriodo());%> </option>
                                     <option value="1° Bim">1° Bim</option>
                                     <option value="2° Bim">2° Bim</option>

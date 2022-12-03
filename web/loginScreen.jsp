@@ -68,7 +68,7 @@
                   out.print("<br><br> Usuario ja possui senha cadastrada!");
                   request.getSession().removeAttribute("msg");
                 } else if(msg != null && msg.equals("userNotExist")){
-                  out.print("<br><br> Usuario n√£o localizado!");
+                  out.print("<br><br> Usuario n„o localizado!");
                   request.getSession().removeAttribute("msg");
                 } else if(msg != null && msg.equals("passwordSet")){
                   out.print("<br><br> Senha criada com sucesso!");

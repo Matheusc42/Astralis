@@ -84,7 +84,7 @@
                   </select> 
                   <select name="Position" required>
                     <option value="" disabled selected>Cargo</option>
-                    <option value="Direção">Direção</option>
+                    <option value="Direção">Diretor</option>
                     <option value="Docente">Docente</option>
                     <option value="Secretário">Secretário</option>
                   </select>

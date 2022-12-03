@@ -115,9 +115,9 @@
                 <option value="EX">Estrangeiro</option>
               </select>
               <p>Cargo: </p>
-              <select name="Position" required disabled value ="<%out.print(currentFunc.getPosition());%>">
+              <select name="Position" required  value ="<%out.print(currentFunc.getPosition());%>">
                 <option value=""></option>
-                <option value="Direção">Direção</option>
+                <option value="Direção">Diretor</option>
                 <option value="Coordenção">Coordenação</option>
                 <option value="Docente">Docente</option>
                 <option value="Secretário">Secretário</option>
