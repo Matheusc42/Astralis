@@ -61,12 +61,12 @@
             <p>CPF:</p> <input type="text" name="CPF" value ="<%out.print(currentAluno.getCPF());%>"/> 
             <p>Certidão de Nascimento:</p> <input type="text" name="BirthCertificate" value ="<%out.print(currentAluno.getBirthCertificate());%>"/> 
             <p>Data de Nascimento:</p> <input type="date" name="BirthDate" value ="<%out.print(currentAluno.getBirthDate());%>"/> 
-            <p>Nome da Mãe:</p> <input type="text" name="responsavelMae" value ="<%out.print(currentAluno.getResponsavelMae());%>"/> 
+            <p>Nome da Mãe:</p> <input type="text" name="ResponsavelMae" value ="<%out.print(currentAluno.getResponsavelMae());%>"/> 
             <p>RG Mãe:</p> <input type="text" name="RGMae" value ="<%out.print(currentAluno.getRGMae());%>"/> 
             <p>CPF Mãe:</p> <input type="text" name="CPFMae" value ="<%out.print(currentAluno.getCPFMae());%>"/> 
-            <p>Nome da Pai:</p> <input type="text" name="responsavelPai" value ="<%out.print(currentAluno.getResponsavelPai());%>"/> 
-            <p>RG Pai:</p> <input type="text" name="RGMae" value ="<%out.print(currentAluno.getRGPai());%>"/> 
-            <p>CPF Pai:</p> <input type="text" name="CPFMae" value ="<%out.print(currentAluno.getCPFPai());%>"/> 
+            <p>Nome da Pai:</p> <input type="text" name="ResponsavelPai" value ="<%out.print(currentAluno.getResponsavelPai());%>"/> 
+            <p>RG Pai:</p> <input type="text" name="RGPai" value ="<%out.print(currentAluno.getRGPai());%>"/> 
+            <p>CPF Pai:</p> <input type="text" name="CPFPai" value ="<%out.print(currentAluno.getCPFPai());%>"/> 
             <p>Celular:</p> <input type="text" name="MobilePhone" value ="<%out.print(currentAluno.getMobilePhone());%>"/>
             <p>Telefone:</p> <input type="text" name="Phone" value ="<%out.print(currentAluno.getPhone());%>"/> 
             <p>Email:</p> <input type="text" name="Mail" value ="<%out.print(currentAluno.getMail());%>"/> 
